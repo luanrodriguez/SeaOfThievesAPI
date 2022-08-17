@@ -7,7 +7,7 @@ const configs = {
     dialect: "postgres",
     database: "seaofthieves",
     define: {
-      timeStamps: true,
+      timestamps: false,
     },
   },
 };

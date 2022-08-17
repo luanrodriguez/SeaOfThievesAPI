@@ -1,0 +1,51 @@
+import { DataTypes } from "sequelize";
+
+const peixeModel = {
+  nome: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    primaryKey: true,
+  },
+  variante: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  isca: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  tempestade: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
+  precoCru: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  precoMalCozido: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  precoPerfeitamenteCozido: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  precoQueimado: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  ondeEncontrar: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  tempoCozimentoPerfeito: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  linkImagem: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+};
+
+export { peixeModel };
