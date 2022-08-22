@@ -18,10 +18,15 @@ const naviosCapitaneados = database.define(
   navioCapitaneadoModel
 );
 
-tipoNavio.hasMany(naviosCapitaneados);
+tipoNavio.hasMany(naviosCapitaneados, {
+  foreignKey: { name: "tipoNavio", allowNull: false },
+});
+piratas.hasOne(naviosCapitaneados, {
+  foreignKey: { name: "capitao", unique: true, allowNull: false },
+});
 
 async function run() {
-  await database.sync({ force: true });
+  await database.sync();
 }
 run();
 

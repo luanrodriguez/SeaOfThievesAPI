@@ -6,6 +6,7 @@ const configs = {
     host: "localhost",
     dialect: "postgres",
     database: "seaofthieves",
+    logging: false,
     define: {
       timestamps: false,
     },
