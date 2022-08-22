@@ -26,8 +26,9 @@ describe("Tipos de navios tests", () => {
       });
   });
   it("GET /tipos-de-navios/nome --> objeto com caracteristicas do tipo de navio escolhido", () => {
+    const {nome} = TEST_OBJECT_SELECT
     return request(app)
-      .get("/tipos-de-navios/Chalupa")
+      .get(`/tipos-de-navios/${nome}`)
       .expect("Content-Type", /json/)
       .expect(200)
       .then((response) => {
@@ -44,4 +45,32 @@ describe("Tipos de navios tests", () => {
         expect(response.body).toEqual(TEST_OBJECT_CREATE_UPDATE_DELETE);
       });
   });
+  it("PUT /tipos-de-navios/nome --> texto com sucesso + verificar se foi alterado", () =>{
+    const {nome} = TEST_OBJECT_CREATE_UPDATE_DELETE
+    const newPreco = 100
+    return request(app)
+      .put(`/tipos-de-navios/${nome}`)
+      .send({preco: newPreco})
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((response) => {
+        expect(response.body).toHaveProperty('success');
+        request(app).get(`/tipos-de-navios/${nome}`).then((response) =>{
+          expect(response.body).toMatchObject({...TEST_OBJECT_CREATE_UPDATE_DELETE, preco: newPreco})
+        })
+      })
+  });
+  it("DELETE /tipos-de-navios/nome --> texto com sucesso + verificar exclusão", ()=>{
+    const {nome} = TEST_OBJECT_CREATE_UPDATE_DELETE
+    return request(app)
+      .delete(`/tipos-de-navios/${nome}`)
+      .expect('Content-type', /json/)
+      .expect(200)
+      .then((response) =>{
+        expect(response.body).toHaveProperty('success');
+        request(app).get(`/tipos-de-navios/${nome}`).expect(404).then((response) => {
+          expect(response.body).toHaveProperty('fail')
+        })
+      })
+  })
 });
