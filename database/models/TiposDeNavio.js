@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 
-const barcoModel = {
+const tiposDeNavioModel = {
   nome: {
     type: DataTypes.STRING,
     primaryKey: true,
@@ -23,4 +23,4 @@ const barcoModel = {
   },
 };
 
-export { barcoModel };
+export { tiposDeNavioModel };

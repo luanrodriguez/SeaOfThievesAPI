@@ -1,12 +1,12 @@
-import { PeixesRepository } from "./PeixesRepository.js";
+import { PiratasRepository } from "./PiratasRepository.js";
 import { handleNome } from "../../utils/HandleNome.js";
-const repository = new PeixesRepository();
+const repository = new PiratasRepository();
 
 const internalErrorMessage = { fail: "Ocorreu um erro" };
-const notFoundErrorMessage = { fail: "Não há peixes com esse nome" };
+const notFoundErrorMessage = { fail: "Não há piratas com esse nome" };
 
-class PeixesController {
-  async getPeixes(req, res) {
+class PiratasController {
+  async getPiratas(req, res) {
     try {
       return res.json(await repository.get());
     } catch {
@@ -14,7 +14,7 @@ class PeixesController {
     }
   }
 
-  async selectPeixes(req, res) {
+  async selectPiratas(req, res) {
     try {
       const nome = handleNome(req.params.nome);
       const result = await repository.select(nome);
@@ -27,7 +27,7 @@ class PeixesController {
     }
   }
 
-  async postPeixes(req, res) {
+  async postPiratas(req, res) {
     try {
       return res.status(201).json(await repository.create(req.body));
     } catch {
@@ -35,12 +35,12 @@ class PeixesController {
     }
   }
 
-  async deletePeixes(req, res) {
+  async deletePiratas(req, res) {
     try {
       const nome = handleNome(req.params.nome);
       const result = await repository.delete(nome);
       if (result > 0) {
-        return res.json({ success: "Peixe removido com sucesso!" });
+        return res.json({ success: "Pirata removido com sucesso!" });
       }
       return res.status(404).json(notFoundErrorMessage);
     } catch {
@@ -48,20 +48,27 @@ class PeixesController {
     }
   }
 
-  async updatePeixes(req, res) {
+  async updatePiratas(req, res) {
     try {
       const nome = handleNome(req.params.nome);
       const [result] = await repository.update(nome, req.body);
       if (result > 0) {
-        return res.json({ success: "Peixe alterado com sucesso!" });
+        return res.json({ success: "Pirata alterado com sucesso!" });
       }
       return res
         .status(404)
-        .json({ fail: "Não há peixes com esse nome ou com essa propriedade" });
+        .json({ fail: "Não há piratas com esse nome ou com essa propriedade" });
     } catch {
       return res.status(500).json(internalErrorMessage);
     }
   }
+
+  _handleNome(nome) {
+    if (nome.includes("-")) {
+      return nome.replace("-", " ");
+    }
+    return nome;
+  }
 }
 
-export { PeixesController };
+export { PiratasController };
