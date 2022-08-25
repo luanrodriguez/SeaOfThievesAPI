@@ -1,6 +1,6 @@
 const handleNome = (nome) => {
   if (nome.includes("-")) {
-    return nome.replace("-", " ");
+    return nome.replace(/-/gi, " ");
   }
   return nome;
 };
