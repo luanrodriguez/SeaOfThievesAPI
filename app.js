@@ -21,24 +21,22 @@ const routes = [
 ];
 const app = express();
 
-// const swaggerOptions = {
-//   swaggerDefinition: {
-//     info: {
-//       title: "Sea of Thieves API",
-//       description:
-//         "This API provides information about Sea of Thieves video-game",
-//       contact: {
-//         name: "Luan",
-//       },
-//       servers: ["http://localhost:5600"],
-//     },
-//   },
-//   apis: ["routes.js"],
-// };
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "Sea of Thieves API (unofficial)",
+      description:
+        "Essa api fornece informações sobre o jogo Sea of Thieves (api não oficial)",
+      servers: [`http://localhost:${process.env.PORT}`, "https://sea-of-thieves-api.herokuapp.com"],
+    },
+    tags:[{name: 'Peixes'}, {name: "Tipos de navios"}, {name: 'Frutas'}]
+  },
+  apis: ['./routes/*.js']
+};
 
-// const swaggerDocs = swaggerJSDoc(swaggerOptions);
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(express.json());
 routes.forEach((route) => app.use(route));
 

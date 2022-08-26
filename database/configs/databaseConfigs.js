@@ -22,5 +22,5 @@ if (environment === "PROD") {
     },
   };
 }
-console.log(configs);
+
 export { configs };
