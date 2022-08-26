@@ -1,9 +1,7 @@
 import { hash, compare } from "bcrypt";
 
-const SALT = 3;
-
 function hashPassword(pwd) {
-  return hash(pwd, SALT);
+  return hash(pwd, parseInt(process.env.HASH_SALT));
 }
 
 function comparePassword(pwd, hash) {

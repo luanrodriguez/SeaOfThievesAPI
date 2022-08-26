@@ -5,7 +5,7 @@ function authMiddleware(req, res, next) {
   if (!token) {
     return res.status(401).json({ fail: "Token não inserido" });
   }
-  jwt.verify(token, "secret", (err, userInfo) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, userInfo) => {
     if (err) {
       return res.status(403).json(err);
     }

@@ -4,12 +4,11 @@ import { frutaModel } from "./models/Fruta.js";
 import { peixeModel } from "./models/Peixe.js";
 import { pirataModel } from "./models/Pirata.js";
 import { navioCapitaneadoModel } from "./models/NavioCapitaneado.js";
-import {usuarioModel} from "./models/Usuario.js"
+import { usuarioModel } from "./models/Usuario.js";
 
 import { configs } from "./configs/databaseConfigs.js";
 
 const database = new Sequelize(configs.dev);
-
 
 database.define("Frutas", frutaModel);
 database.define("Peixes", peixeModel);

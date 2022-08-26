@@ -1,14 +1,14 @@
 import express from "express";
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+
 import frutasRoutes from "./routes/frutasRoutes.js";
 import peixesRoutes from "./routes/peixesRoutes.js";
 import piratasRoutes from "./routes/piratasRoutes.js";
 import tiposDeNaviosRoutes from "./routes/tiposDeNaviosRoutes.js";
 import naviosCapitaneadosRoutes from "./routes/naviosCapitaneadosRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
-import usuariosRoutes from "./routes/usuariosRoutes.js"
-
-import swaggerJSDoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
+import usuariosRoutes from "./routes/usuariosRoutes.js";
 
 const routes = [
   frutasRoutes,
@@ -17,7 +17,7 @@ const routes = [
   tiposDeNaviosRoutes,
   naviosCapitaneadosRoutes,
   loginRoutes,
-  usuariosRoutes
+  usuariosRoutes,
 ];
 const app = express();
 
