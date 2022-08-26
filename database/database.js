@@ -8,7 +8,7 @@ import { usuarioModel } from "./models/Usuario.js";
 
 import { configs } from "./configs/databaseConfigs.js";
 
-const database = new Sequelize(configs.dev);
+const database = new Sequelize(configs);
 
 database.define("Frutas", frutaModel);
 database.define("Peixes", peixeModel);
