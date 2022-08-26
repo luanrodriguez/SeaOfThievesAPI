@@ -42,6 +42,26 @@ const peixeModel = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  precoCruTrofeu: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  precoMalCozidoTrofeu: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  precoPerfeitamenteCozidoTrofeu: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  precoQueimadoTrofeu: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  tempoCozimentoPerfeito: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   linkImagem: {
     type: DataTypes.STRING,
     allowNull: false,
