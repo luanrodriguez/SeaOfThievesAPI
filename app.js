@@ -16,7 +16,6 @@ const routes = [
   piratasRoutes,
   tiposDeNaviosRoutes,
   naviosCapitaneadosRoutes,
-  loginRoutes,
   usuariosRoutes,
 ];
 const app = express();
