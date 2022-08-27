@@ -58,7 +58,7 @@ const peixeModel = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  tempoCozimentoPerfeito: {
+  tempoCozimentoPerfeitoTrofeu: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
