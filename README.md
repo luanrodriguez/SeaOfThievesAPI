@@ -1,4 +1,5 @@
 # SeaOfThievesAPI
+OBS: AS IMAGENS UTILIZADAS NA ROTA /PEIXES É DE PROPRIEDADE DA SEA OF THIEVES BRASIL, DISPONÍVEIS NO LINK: https://www.sotbrasil.com/peixes
 
 Esse projeto é uma API para acessar informações do jogo Sea of Thieves (não oficial). Esse projeto foi criado para estudo e não tem uma utilidade real, muitas rotas foram criadas como uma forma de estudo, para colocar em prática conhecimentos obtidos como: hash de senhas, json web token, orms, relações em bancos relacionais, separação de um ambiente de dev e de prod, deploy da aplicação, TDD, documentação com swagger, entre outros.
 
